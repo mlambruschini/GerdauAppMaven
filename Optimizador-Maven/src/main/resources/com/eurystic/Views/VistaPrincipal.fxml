@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane fx:id="mainLayout" depthTest="ENABLE" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1366.0" scaleShape="false" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.eurystic.Controllers.VistaPrincipalController">
+   <children>
+      <Pane prefHeight="768.0" prefWidth="683.0" style="-fx-background-color: #195393;" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <ImageView fitHeight="80.0" layoutX="14.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Images/LogoGERDAU.png" />
+               </image>
+            </ImageView>
+            <ImageView fitWidth="683.0" layoutY="132.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Images/PlantaGERDAU.png" />
+               </image>
+               <viewport>
+                  <Rectangle2D width="800.0" />
+               </viewport>
+               <effect>
+                  <BoxBlur />
+               </effect>
+            </ImageView>
+            <ImageView fitHeight="154.0" fitWidth="159.0" layoutY="626.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Images/LogoEurystic.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="521.0" layoutY="711.0" text="Soporte y consultas:" textFill="WHITE">
+               <font>
+                  <Font name="Calibri" size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="475.0" layoutY="732.0" text="contacto@eurystic.com.ar" textFill="WHITE">
+               <font>
+                  <Font name="Calibri" size="18.0" />
+               </font>
+            </Label>
+            <Label alignment="BASELINE_CENTER" layoutY="536.0" prefHeight="100.0" prefWidth="683.0" stylesheets="@../Css/VistaPrincipal.css" text="OPTIMIZACIÓN DE LA PROGRAMACIÓN DE&#10;PRODUCCIÓN DE MALLAS METÁLICAS" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <Label layoutX="586.0" layoutY="654.0" text="Versión 1.0" textFill="WHITE">
+               <font>
+                  <Font name="Calibri" size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="595.0" layoutY="676.0" text="Abril 2020" textFill="WHITE">
+               <font>
+                  <Font name="Calibri" size="18.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Pane prefHeight="768.0" prefWidth="683.0" style="-fx-background-color: white;" stylesheets="@../Css/VistaPrincipal.css" AnchorPane.leftAnchor="683.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Pane layoutX="41.0" layoutY="109.0" prefHeight="200.0" prefWidth="290.0" style="-fx-background-color: transparent; -fx-background-radius: 1em; -fx-border-radius: 1em; -fx-border-color: #195393; -fx-border-width: 2px;">
+               <children>
+                  <Label alignment="CENTER" prefHeight="40.0" prefWidth="290.0" style="-fx-background-color: #8CB8EB; -fx-background-radius: 0.7em 0.7em 0em 0em; -fx-border-color: #195393; -fx-border-width: 2px; -fx-border-radius: 0.7em 0.7em 0em 0em;" text="SELECCIONAR ESCENARIO" textFill="#195393">
+                     <font>
+                        <Font name="Calibri" size="16.0" />
+                     </font>
+                  </Label>
+                  <ListView fx:id="listEscenarios" layoutY="40.0" onMouseClicked="#handleEleccionEscenario" prefHeight="160.0" prefWidth="290.0" />
+               </children>
+            </Pane>
+            <Button fx:id="btnOptimizarProduccion" alignment="BASELINE_RIGHT" layoutX="42.0" layoutY="702.0" mnemonicParsing="false" onAction="#handleOptimizarProduccion" prefHeight="52.0" prefWidth="290.0" stylesheets="@../Css/VistaPrincipal.css" text="EJECUTAR OPTIMIZACIÓN" textAlignment="CENTER">
+               <graphic>
+                  <ImageView fitHeight="40.0" fitWidth="65.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Images/play.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <padding>
+                  <Insets right="20.0" />
+               </padding>
+            </Button>
+            <Label alignment="BASELINE_CENTER" layoutX="22.0" layoutY="14.0" prefHeight="72.0" prefWidth="640.0" style="-fx-background-color: transparent; -fx-border-width: 0px 0px 5px 0px; -fx-border-color: #195393;" text="CONFIGURACIÓN DE ESCENARIOS" textFill="#195393">
+               <font>
+                  <Font name="Calibri" size="36.0" />
+               </font>
+            </Label>
+            <Pane layoutX="352.0" layoutY="109.0" prefHeight="200.0" prefWidth="290.0" style="-fx-background-color: transparent; -fx-background-radius: 1em; -fx-border-radius: 1em; -fx-border-color: #195393; -fx-border-width: 2px;">
+               <children>
+                  <Label alignment="CENTER" prefHeight="40.0" prefWidth="290.0" style="-fx-background-color: #8CB8EB; -fx-background-radius: 0.7em 0.7em 0em 0em; -fx-border-color: #195393; -fx-border-width: 2px; -fx-border-radius: 0.7em 0.7em 0em 0em;" text="DESCRIPCIÓN DEL ESCENARIO" textFill="#195393">
+                     <font>
+                        <Font name="Calibri" size="16.0" />
+                     </font>
+                  </Label>
+                  <TextArea fx:id="taDescripcionEscenarios" layoutX="5.0" layoutY="40.0" prefHeight="154.0" prefWidth="280.0">
+                     <padding>
+                        <Insets bottom="10.0" right="10.0" />
+                     </padding>
+                     <font>
+                        <Font name="Calibri" size="17.0" />
+                     </font>
+                  </TextArea>
+               </children>
+            </Pane>
+            <Line endX="320.0" layoutX="341.0" layoutY="334.0" startX="-320.0" stroke="#195393" strokeWidth="5.0" />
+            <Line endX="320.0" layoutX="341.0" layoutY="689.0" startX="-320.0" stroke="#195393" strokeWidth="5.0" />
+            <Line endY="180.0" layoutX="341.0" layoutY="484.0" startY="-85.0" stroke="#195393" />
+            <Label alignment="BASELINE_CENTER" layoutX="41.0" layoutY="351.0" prefHeight="31.0" prefWidth="600.0" style="-fx-background-color: #8CB8EB; -fx-background-radius: 0.5em; -fx-border-radius: 0.5em; -fx-border-color: #195393; -fx-border-width: 2px;" text="PARAMETRIZACIÓN DEL OPTIMIZADOR" textFill="#195393">
+               <font>
+                  <Font name="Calibri" size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="45.0" layoutY="394.0" text="FECHA DE INICIO DE PROGRAMACIÓN:" textFill="#195393">
+               <font>
+                  <Font name="Calibri" size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="50.0" layoutY="489.0" text="PERÍODO DE OPTIMIZACIÓN" textFill="#195393">
+               <font>
+                  <Font name="Calibri" size="18.0" />
+               </font>
+            </Label>
+            <RadioButton fx:id="rbtnM0Completo" layoutX="67.0" layoutY="520.0" mnemonicParsing="false" onAction="#handleLabelFechaFin" text="M0 completo" textFill="#195393">
+               <font>
+                  <Font name="Calibri" size="16.0" />
+               </font>
+               <toggleGroup>
+                  <ToggleGroup fx:id="periodoOptimizacion" />
+               </toggleGroup>
+            </RadioButton>
+            <RadioButton fx:id="rbtnHorizontePredeterminado" layoutX="67.0" layoutY="580.0" mnemonicParsing="false" onAction="#handleLabelFechaFin" text="Horizonte predeterminado:" textFill="#195393" toggleGroup="$periodoOptimizacion">
+               <font>
+                  <Font name="Calibri" size="16.0" />
+               </font>
+            </RadioButton>
+            <Label layoutX="96.0" layoutY="618.0" text="-Hasta:" textFill="#195393">
+               <font>
+                  <Font name="Calibri" size="16.0" />
+               </font>
+            </Label>
+            <TextField fx:id="textFieldFechaFin" alignment="CENTER" layoutX="160.0" layoutY="608.0" prefHeight="40.0" prefWidth="159.0" promptText="dd/mm/yyyy" style="-fx-background-color: #8CB8EB; -fx-border-color: #195393; -fx-text-fill: white; -fx-background-radius: 0.5em; -fx-border-radius: 0.5em; -fx-prompt-text-fill: grey;">
+               <font>
+                  <Font name="Calibri" size="18.0" />
+               </font>
+            </TextField>
+            <Label layoutX="352.0" layoutY="394.0" text="CRITERIO DE PRODUCCIÓN ATR" textFill="#195393">
+               <font>
+                  <Font name="Calibri" size="18.0" />
+               </font>
+            </Label>
+            <RadioButton fx:id="rbtnCarretesLlenos" layoutX="373.0" layoutY="418.0" mnemonicParsing="false" onAction="#handleLabelsProduccionATR" text="Carretes siempre llenos" textFill="#195393">
+               <toggleGroup>
+                  <ToggleGroup fx:id="produccionAtr" />
+               </toggleGroup>
+               <font>
+                  <Font name="Calibri" size="16.0" />
+               </font>
+            </RadioButton>
+            <RadioButton fx:id="rbtnLlenadoParcial" layoutX="373.0" layoutY="448.0" mnemonicParsing="false" onAction="#handleLabelsProduccionATR" text="Carretes con opción de llenado parcial" textFill="#195393" toggleGroup="$produccionAtr">
+               <font>
+                  <Font name="Calibri" size="16.0" />
+               </font>
+            </RadioButton>
+            <Label layoutX="405.0" layoutY="476.0" text="-Demanda límite&#10;para llenado parcial:" textFill="#195393">
+               <font>
+                  <Font name="Calibri" size="16.0" />
+               </font>
+            </Label>
+            <TextField fx:id="textFieldDemandaLimite" alignment="BASELINE_CENTER" layoutX="595.0" layoutY="478.0" prefHeight="36.0" prefWidth="55.0" style="-fx-background-color: #8CB8EB; -fx-border-color: #195393; -fx-text-fill: white; -fx-prompt-text-fill: white; -fx-background-radius: 0.5em; -fx-border-radius: 0.5em;">
+               <font>
+                  <Font name="Calibri" size="18.0" />
+               </font>
+            </TextField>
+            <Line endX="120.0" layoutX="513.0" layoutY="560.0" startX="-150.0" stroke="#195393" />
+            <Label layoutX="352.0" layoutY="564.0" text="CRITERIO DE WH DE MALLAS" textFill="#195393">
+               <font>
+                  <Font name="Calibri" size="18.0" />
+               </font>
+            </Label>
+            <RadioButton fx:id="rbtnSinMezcla" layoutX="373.0" layoutY="587.0" mnemonicParsing="false" onAction="#handleLabelLlenadoMaximo" text="Sin mezcla de productos en estiba" textFill="#195393">
+               <toggleGroup>
+                  <ToggleGroup fx:id="whMallas" />
+               </toggleGroup>
+               <font>
+                  <Font name="Calibri" size="16.0" />
+               </font>
+            </RadioButton>
+            <RadioButton fx:id="rbtnConMezcla" layoutX="373.0" layoutY="616.0" mnemonicParsing="false" onAction="#handleLabelLlenadoMaximo" text="Con mezcla de productos en estiba" textFill="#195393" toggleGroup="$whMallas">
+               <font>
+                  <Font name="Calibri" size="16.0" />
+               </font>
+            </RadioButton>
+            <Button fx:id="btnComparacion" alignment="CENTER" layoutX="352.0" layoutY="702.0" mnemonicParsing="false" onAction="#handleComparacionHistorica" prefHeight="52.0" prefWidth="290.0" text="COMPARACIÓN HISTÓRICA" textAlignment="CENTER" />
+            <RadioButton fx:id="rbtnM1Completo" layoutX="67.0" layoutY="550.0" mnemonicParsing="false" onAction="#handleLabelFechaFin" text="M1 completo" textFill="#195393" toggleGroup="$periodoOptimizacion">
+               <font>
+                  <Font name="Calibri" size="16.0" />
+               </font>
+            </RadioButton>
+            <TextField fx:id="textFieldLlenadoMinimo" alignment="BASELINE_CENTER" layoutX="595.0" layoutY="518.0" prefHeight="36.0" prefWidth="55.0" style="-fx-background-color: #8CB8EB; -fx-border-color: #195393; -fx-text-fill: white; -fx-prompt-text-fill: white; -fx-background-radius: 0.5em; -fx-border-radius: 0.5em;">
+               <font>
+                  <Font name="Calibri" size="18.0" />
+               </font>
+            </TextField>
+            <Text fill="#195393" layoutX="657.0" layoutY="505.0" strokeType="OUTSIDE" strokeWidth="0.0" text="\%">
+               <font>
+                  <Font name="Calibri" size="18.0" />
+               </font>
+            </Text>
+            <Text fill="#195393" layoutX="655.0" layoutY="540.0" strokeType="OUTSIDE" strokeWidth="0.0" text="kg">
+               <font>
+                  <Font name="Calibri" size="18.0" />
+               </font>
+            </Text>
+            <Label layoutX="405.0" layoutY="527.0" text="-Llenado mínimo de carrete:" textFill="#195393">
+               <font>
+                  <Font name="Calibri" size="16.0" />
+               </font>
+            </Label>
+            <Text fill="#195393" layoutX="408.0" layoutY="655.0" strokeType="OUTSIDE" strokeWidth="0.0" text="-Llenado máximo&#10;de almacen:">
+               <font>
+                  <Font name="Calibri" size="16.0" />
+               </font>
+            </Text>
+            <TextField fx:id="textFieldLlenadoMaximoAlmacen" alignment="BASELINE_CENTER" layoutX="595.0" layoutY="642.0" onAction="#handleLabelLlenadoMaximo" prefHeight="36.0" prefWidth="55.0" style="-fx-background-color: #8CB8EB; -fx-border-color: #195393; -fx-text-fill: white; -fx-prompt-text-fill: white; -fx-background-radius: 0.5em; -fx-border-radius: 0.5em;">
+               <font>
+                  <Font name="Calibri" size="18.0" />
+               </font>
+            </TextField>
+            <Text fill="#195393" layoutX="657.0" layoutY="664.0" strokeType="OUTSIDE" strokeWidth="0.0" text="\%">
+               <font>
+                  <Font name="Calibri" size="18.0" />
+               </font>
+            </Text>
+            <Button fx:id="btnClose" contentDisplay="GRAPHIC_ONLY" layoutX="648.0" mnemonicParsing="false" onAction="#handleClose" prefHeight="28.0" prefWidth="30.0" stylesheets="@../Css/VistaPrincipal.css" text="Button">
+               <graphic>
+                  <ImageView fitHeight="150.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Images/cerrarNegro.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="btnMinimize" contentDisplay="GRAPHIC_ONLY" layoutX="608.0" mnemonicParsing="false" onAction="#handleMinimize" prefHeight="28.0" prefWidth="30.0" stylesheets="@../Css/VistaPrincipal.css" text="Button">
+               <graphic>
+                  <ImageView fitHeight="150.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Images/minimizeNegro.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Label fx:id="labelFechaInicioProduccion" alignment="BASELINE_CENTER" layoutX="90.0" layoutY="431.0" prefHeight="40.0" prefWidth="194.0" text="##/##/####" textAlignment="CENTER" textFill="#195393">
+               <font>
+                  <Font size="28.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>
