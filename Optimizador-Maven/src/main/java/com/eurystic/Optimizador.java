@@ -11,6 +11,8 @@ import javafx.stage.StageStyle;
 import java.io.IOException;
 import java.util.concurrent.atomic.AtomicReference;
 
+import static com.eurystic.Services.InputParameters.readEscenarios;
+
 public class Optimizador extends Application {
 
     Stage primaryStage;
@@ -28,10 +30,11 @@ public class Optimizador extends Application {
 
         primaryStage.setTitle("Programador de Producción de Mallas");
 
-        new FadeIn(root).play();
+//        new FadeIn(root).play();
     }
 
     public static void main(String[] args) throws IOException{
+        readEscenarios();
         launch(args);
     }
 

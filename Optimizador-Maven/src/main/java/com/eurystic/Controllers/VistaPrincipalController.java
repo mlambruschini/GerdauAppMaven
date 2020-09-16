@@ -1,11 +1,11 @@
 package com.eurystic.Controllers;
 
+import animatefx.animation.Pulse;
+import com.eurystic.Services.Simulation;
+import eurystic.gerdaumallas.simulador.Maestros;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
@@ -14,14 +14,17 @@ import javafx.stage.Stage;
 import java.io.File;
 import java.io.IOException;
 import java.util.Date;
-import java.util.Objects;
-import java.util.concurrent.atomic.AtomicReference;
+
+import static com.eurystic.Services.InputParameters.descripcionEscenarios;
+import static com.eurystic.Services.InputParameters.fechaInicioProduccion;
+
+import com.eurystic.Services.Simulation.*;
 
 
 public class VistaPrincipalController {
 
 
-    //Maestros maestros = Maestros.getInstance();
+    Maestros maestros = Maestros.getInstance();
 
     public static Date fechaFinProduccion;
 
@@ -127,52 +130,15 @@ public class VistaPrincipalController {
     }
 
     @FXML
-    private void handleOptimizarProduccion(ActionEvent event) throws InterruptedException {
-//        File escenarioSelected = new File(descripcionEscenarios.get(listEscenarios.getSelectionModel().getSelectedItem())[1]);
-//
-//        Stage primaryStage = (Stage)((Node) event.getSource()).getScene().getWindow();
-//        final Scene[] sceneMenu = new Scene[1];
-//        final Parent[] rootMenu = new Parent[1];
-//
-//        AnimationFX pulse = new Pulse(btnOptimizarProduccion);
-//        AnimationFX pulse2 = new Pulse(mainLayout);
-//        AnimationFX slideOutUp = new SlideOutUp(mainLayout);
-//        Thread animationThread = new Thread(() -> {
-//            pulse.play();
-//            pulse.setOnFinished(event1 -> pulse2.play());
-//            pulse2.setOnFinished(event1 -> slideOutUp.play());
-//        });
-//
-//        Thread processThread = new Thread(() ->{
-//            setPeriodoDeOptimizacion();
-//            setCriterioDeProduccionATR();
-//            setCriterioWhMallas();
-//            maestros.leerInput(escenarioSelected);
-//            new RunWriteResultados().runSimulador();
-//            rootMenu[0] = null;
-//            try {
-//                rootMenu[0] = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Menu.fxml")));
-//            } catch (IOException ex) {
-//                ex.printStackTrace();
-//            }
-//            sceneMenu[0] = new Scene(rootMenu[0]);
-//        });
-//
-//        processThread.start();
-//        animationThread.start();
-//
-//        animationThread.join();
-//        slideOutUp.setOnFinished(e -> {
-//            try {
-//                processThread.join();
-//            } catch (InterruptedException ex) {
-//                ex.printStackTrace();
-//            }
-//            borderlessWindow(rootMenu[0], primaryStage);
-//            primaryStage.setScene(sceneMenu[0]);
-//        });
-//
-//
+    private void handleOptimizarProduccion(ActionEvent event) {
+//        new Pulse(btnOptimizarProduccion).play();
+        File escenarioSelected = new File(descripcionEscenarios.get(listEscenarios.getSelectionModel().getSelectedItem())[1]);
+
+//        setPeriodoDeOptimizacion();
+//        setCriterioDeProduccionATR();
+//        setCriterioWhMallas();
+//        maestros.leerInput(escenarioSelected);
+//        new Simulation().runSimulador();
 
     }
 
@@ -246,9 +212,9 @@ public class VistaPrincipalController {
 
     @FXML
     private void handleEleccionEscenario(MouseEvent event) throws IOException {
-//        taDescripcionEscenarios.setText(descripcionEscenarios.get(listEscenarios.getSelectionModel().getSelectedItem())[0]);
-//        labelFechaInicioProduccion.setText(descripcionEscenarios.get(listEscenarios.getSelectionModel().getSelectedItem())[2]);
-//        fechaInicioProduccion = stringToDate(labelFechaInicioProduccion.getText());
+        taDescripcionEscenarios.setText(descripcionEscenarios.get(listEscenarios.getSelectionModel().getSelectedItem())[0]);
+        labelFechaInicioProduccion.setText(descripcionEscenarios.get(listEscenarios.getSelectionModel().getSelectedItem())[2]);
+        fechaInicioProduccion = stringToDate(labelFechaInicioProduccion.getText());
     }
 
     public Date stringToDate(String dateString){
@@ -268,10 +234,10 @@ public class VistaPrincipalController {
 
     @FXML
     public void initialize() {
-//        loadEscenarios();
-//        listEscenarios.getSelectionModel().select(0);
-//        taDescripcionEscenarios.setText(descripcionEscenarios.get(listEscenarios.getSelectionModel().getSelectedItem())[0]);
-//        labelFechaInicioProduccion.setText(descripcionEscenarios.get(listEscenarios.getSelectionModel().getSelectedItem())[2]);
+        loadEscenarios();
+        listEscenarios.getSelectionModel().select(0);
+        taDescripcionEscenarios.setText(descripcionEscenarios.get(listEscenarios.getSelectionModel().getSelectedItem())[0]);
+        labelFechaInicioProduccion.setText(descripcionEscenarios.get(listEscenarios.getSelectionModel().getSelectedItem())[2]);
 //
 //        btnComparacion.setDisable(true);
 //
@@ -286,9 +252,9 @@ public class VistaPrincipalController {
     }
 
     private void loadEscenarios() {
-//        for (String escenario :
-//                descripcionEscenarios.keySet()) {
-//            listEscenarios.getItems().add(escenario);
-//        }
+        for (String escenario :
+                descripcionEscenarios.keySet()) {
+            listEscenarios.getItems().add(escenario);
+        }
     }
 }
